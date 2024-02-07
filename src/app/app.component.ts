@@ -10,6 +10,7 @@ import { ToastModule } from 'primeng/toast';
 import {VideoComponent} from "./components/video/video.component";
 import { AngularFireModule } from '@angular/fire/compat';
 import {MessageService} from "primeng/api";
+import {RecordedComponent} from "./components/recorded/recorded.component";
 // import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
@@ -17,7 +18,7 @@ import {MessageService} from "primeng/api";
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,
-    HeaderComponent, VideoComponent,
+    HeaderComponent, VideoComponent, RecordedComponent,
     ButtonModule, ToastModule,
     CardModule, InputTextModule, CommonModule,
     ReactiveFormsModule],

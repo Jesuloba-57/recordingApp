@@ -1,6 +1,10 @@
 <header>
   <h1>{{ title }}</h1>
-  <app-button color="green" text="Start" (btnClick)="startRecord()"></app-button>
-  <app-button color="green" text="Stop" (btnClick)="endRecord()"></app-button>
+  <app-button
+    text="Signout"
+    pStyleClass="w-full"
+    (btnClick)="signout()"
+  >
+  </app-button>
 </header>
 

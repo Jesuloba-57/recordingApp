@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import {SharedModule} from "primeng/api";
 import {HeaderComponent} from "../header/header.component";
 import {VideoComponent} from "../video/video.component";
+import {ButtonComponent} from "../button/button.component";
+import {AuthService} from "../../shared/auth.service";
 
 @Component({
   selector: 'app-landing',
@@ -10,7 +12,8 @@ import {VideoComponent} from "../video/video.component";
   imports: [
     SharedModule,
     HeaderComponent,
-    VideoComponent
+    VideoComponent,
+    ButtonComponent
   ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css'
@@ -22,14 +25,14 @@ export class LandingComponent implements OnInit{
 
 
     }
-    // startRecord(){
-    //   console.log('Passed request')
-    //   this.component.startVideoRecording();
-    // }
+    startRecord(){
+      console.log('Passed request')
+      this.component.startVideoRecording();
+    }
     //
-    // endRecord(){
-    //   console.log('Passed End')
-    //   this.component.stopVideoRecording();
-    // }
+    endRecord(){
+      console.log('Passed End')
+      this.component.stopVideoRecording();
+    }
 
 }

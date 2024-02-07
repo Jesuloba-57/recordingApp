@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ButtonComponent} from "../button/button.component";
 import {VideoService} from "../../shared/video.service";
 import {VideoComponent} from "../video/video.component";
+import {AuthService} from "../../shared/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,7 @@ import {VideoComponent} from "../video/video.component";
 export class HeaderComponent {
   title: string = 'Recorder App';
 
-  constructor(private vid: VideoComponent) {
+  constructor(private vid: VideoComponent, private auth: AuthService) {
   }
   ngOnInit(): void{
   }
@@ -28,6 +29,12 @@ export class HeaderComponent {
   endRecord(){
     console.log('End');
     this.vid.stopVideoRecording();
+  }
+
+
+  signout(){
+    alert("Successfully Siigned out!");
+    this.auth.logout();
   }
 
 }

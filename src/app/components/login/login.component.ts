@@ -45,7 +45,7 @@ export class LoginComponent {
 
   login(){
     const {email, password } = this.loginForm.value;
-    console.log("Logging in: ", email)
+    //console.log("Logging in: ", email)
     this.auth.login(email as string, password as string);
   }
 }

@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import {MessageService} from "primeng/api";
+import {VideoService} from "./shared/video.service";
 import {VideoComponent} from "./components/video/video.component";
 
 
