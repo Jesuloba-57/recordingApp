@@ -8,7 +8,6 @@ import {RouterLink} from "@angular/router";
 import {NgIf} from "@angular/common";
 import { CommonModule } from '@angular/common';
 import {AuthService} from "../../shared/auth.service";
-import {MessageService} from "primeng/api";
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -30,7 +29,7 @@ export class LoginComponent {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]]
   })
-  constructor(private fb: FormBuilder, private auth : AuthService, private messageServrice : MessageService) {
+  constructor(private fb: FormBuilder, private auth : AuthService) {
   }
 
   get email(){

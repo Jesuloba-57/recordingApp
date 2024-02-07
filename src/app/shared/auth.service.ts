@@ -29,9 +29,11 @@ export class AuthService {
   //monitor login states
   stateMonitor(){
     this.fireauth.onAuthStateChanged(user => {
-      if (user){
-        console.log("User logged in: ", user)
-      } else{
+      if (user) {
+        console.log("User logged in: ", user.email)
+        this.currentUserSig = !this.currentUserSig;
+        this.router.navigate(['landing'])
+      } else {
         console.log("User logged out");
       }
     })
