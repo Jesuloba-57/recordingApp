@@ -9,8 +9,6 @@ import {NgIf} from "@angular/common";
 import { CommonModule } from '@angular/common';
 import {AuthService} from "../../shared/auth.service";
 import {MessageService} from "primeng/api";
-
-
 @Component({
   selector: 'app-login',
   standalone: true,

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, signal} from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import {Router} from "@angular/router";
 
@@ -15,13 +15,14 @@ export class AuthService {
   login(email : string, password : string){
     this.fireauth.signInWithEmailAndPassword(email, password).then( () => {
       localStorage.setItem('token','true');
+      this.currentUserSig = !this.currentUserSig;
       this.router.navigate(['landing'])
     }, err => {
-      alert(err.message);
+      alert("User Does not exist!");
       this.router.navigate(['/login']);
     })
   }
-
+  currentUserSig: boolean = false;
   //registration
   register(email : string, password : string){
     this.fireauth.createUserWithEmailAndPassword(email, password).then( () => {
@@ -37,6 +38,7 @@ export class AuthService {
   logout(){
     this.fireauth.signOut().then( () => {
       localStorage.removeItem('token');
+      this.currentUserSig = !this.currentUserSig;
       this.router.navigate(['/login']);
     }, err =>{
       alert(err.message)
