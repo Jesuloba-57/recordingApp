@@ -11,6 +11,7 @@ import {VideoComponent} from "./components/video/video.component";
 import { AngularFireModule } from '@angular/fire/compat';
 import {MessageService} from "primeng/api";
 import {RecordedComponent} from "./components/recorded/recorded.component";
+import {Firestore} from "@angular/fire/firestore";
 // import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 

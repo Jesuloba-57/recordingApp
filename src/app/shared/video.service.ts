@@ -62,7 +62,8 @@ export class VideoService {
     this.mediaVideoRecorder.stop();
     //this.mediaVideoRecorder.destroy();
     this.isRecording = !this.isRecording;
-    this.router.navigate(['/recorded']);
+    alert("Recording Saved!")
+    // this.router.navigate(['/recorded']);
   }
 
   playRecording(recordVideoElement: HTMLVideoElement) {

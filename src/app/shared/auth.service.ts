@@ -1,20 +1,21 @@
 import {Injectable, signal} from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import {Router} from "@angular/router";
-
-
+import firebase from "firebase/compat";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
 
-  constructor(private fireauth : AngularFireAuth, private router : Router) {  }
+export class AuthService {
+  constructor(private fireauth : AngularFireAuth, private router : Router) {
+    this.stateMonitor();
+  }
 
   //loginMethod
   login(email : string, password : string){
-    this.fireauth.signInWithEmailAndPassword(email, password).then( () => {
-      localStorage.setItem('token','true');
+    this.fireauth.signInWithEmailAndPassword(email, password).then( (cred) => {
+      // localStorage.setItem('token','true');
       this.currentUserSig = !this.currentUserSig;
       this.router.navigate(['landing'])
     }, err => {
@@ -22,10 +23,24 @@ export class AuthService {
       this.router.navigate(['/login']);
     })
   }
+
+
+
+  //monitor login states
+  stateMonitor(){
+    this.fireauth.onAuthStateChanged(user => {
+      if (user){
+        console.log("User logged in: ", user)
+      } else{
+        console.log("User logged out");
+      }
+    })
+  }
+
   currentUserSig: boolean = false;
   //registration
   register(email : string, password : string){
-    this.fireauth.createUserWithEmailAndPassword(email, password).then( () => {
+    this.fireauth.createUserWithEmailAndPassword(email, password).then( (cred) => {
       alert('Registration Successful');
       this.router.navigate(['/login'])
     }, err => {

@@ -10,9 +10,7 @@ import {MessageService} from "primeng/api";
 import {VideoService} from "./shared/video.service";
 import {VideoComponent} from "./components/video/video.component";
 import {AuthguardService} from "./shared/authguard.service";
-
-
-
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), VideoComponent, AuthguardService, provideClientHydration(), MessageService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }]

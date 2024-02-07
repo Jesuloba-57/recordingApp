@@ -5,6 +5,7 @@ import {HeaderComponent} from "../header/header.component";
 import {VideoComponent} from "../video/video.component";
 import {ButtonComponent} from "../button/button.component";
 import {AuthService} from "../../shared/auth.service";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-landing',
@@ -13,7 +14,8 @@ import {AuthService} from "../../shared/auth.service";
     SharedModule,
     HeaderComponent,
     VideoComponent,
-    ButtonComponent
+    ButtonComponent,
+    RouterLink
   ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css'
